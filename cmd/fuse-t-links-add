@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+PRODUCT_HOME="/Library/Application Support/fuse-t"
+
+if [ ! -e "/usr/local/lib/pkgconfig/fuse.pc" ]; then
+    sudo ln -sf /usr/local/lib/pkgconfig/fuse-t.pc /usr/local/lib/pkgconfig/fuse.pc
+fi
+
+if [ ! -d "/usr/local/include/fuse" ]; then
+    sudo mkdir -p /usr/local/include
+    sudo ln -sf "${PRODUCT_HOME}/include/fuse" "/usr/local/include/fuse"
+fi
+
+if [ ! -e "/usr/local/include/fuse.h" ]; then
+  sudo tee /usr/local/include/fuse.h << EOF
+/*
+   This header is for compatibility with older software using FUSE.
+
+   Please use 'pkg-config --cflags fuse' to set include path.  The
+   correct usage is still '#include <fuse.h>', not '#include
+   <fuse/fuse.h>'.
+*/
+
+#include "fuse/fuse.h"
+EOF
+fi
