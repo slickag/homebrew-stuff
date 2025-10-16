@@ -1,0 +1,29 @@
+name: Homebrew bump formula
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "25 * * * *"
+
+jobs:
+  autobump:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Update Homebrew formula
+      uses: dawidd6/action-homebrew-bump-formula@master
+      with:
+        # Required, custom personal GitHub access token with only the 'public_repo' scope enabled
+        token: ${{secrets.AUTOBUMP_TOKEN}}
+        # Optional, will commit with this user name
+        user_name: slickag
+        # Optional, will commit with this user email
+        user_email: 45057319+slickag@users.noreply.github.com
+        # Optional, will create tap repo fork in organization
+        # org: ORG
+        # Bump all outdated formulae in this tap
+        tap: slickag/stash
+        # Bump only these formulae if outdated
+        # formula: FORMULA-1, FORMULA-2, FORMULA-3, ...
+        # Optional, if don't want to check for already open PRs
+        force: false # true
+        # Need to set this input if want to use `brew livecheck`
+        livecheck: true
