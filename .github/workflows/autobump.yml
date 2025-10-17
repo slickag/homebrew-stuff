@@ -20,7 +20,7 @@ jobs:
         # Optional, will create tap repo fork in organization
         # org: ORG
         # Bump all outdated formulae in this tap
-        tap: slickag/stash
+        tap: slickag/stuff
         # Bump only these formulae if outdated
         # formula: FORMULA-1, FORMULA-2, FORMULA-3, ...
         # Optional, if don't want to check for already open PRs
