@@ -44,7 +44,7 @@ jobs:
         if: matrix.os == 'macos-26' || matrix.os == 'macos-15-intel'
         run: |
           brew install --cask fuse-t
-          /bin/bash -c /Users/runner/work/homebrew-stash/homebrew-stash/cmd/fuse-t-links-add > /dev/null
+          /bin/bash -c /Users/runner/work/homebrew-stuff/homebrew-stuff/cmd/fuse-t-links-add > /dev/null
 
       - run: brew test-bot --only-tap-syntax
       - name: Base64-encode GITHUB_TOKEN for HOMEBREW_DOCKER_REGISTRY_TOKEN

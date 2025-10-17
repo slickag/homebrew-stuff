@@ -6,12 +6,6 @@ class Forgejo < Formula
   license "GPL-3.0-or-later"
   head "https://codeberg.org/forgejo/forgejo.git", branch: "forgejo"
 
-  bottle do
-    root_url "https://ghcr.io/v2/slickag/stash"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "403613d5423021ccac654b5c7e750273f54836324f4fea20ca31605a8cac8b0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8a5aac374489c15037f7973a54887089eaa08d597ff0c7af39b8a7328d9bd7ab"
-  end
-
   depends_on "go" => :build
   depends_on "node" => :build
 
